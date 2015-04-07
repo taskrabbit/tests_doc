@@ -67,7 +67,13 @@ module TestsDoc
       end
 
       def formatted_example_location
-        path = example.location.gsub(/^.\//, "")
+        path = if TestsDoc.configuration.add_spec_file_number
+                 example.location
+               else
+                 example.file_path
+               end
+        path = path.gsub(/^.\//, "")
+
         "[#{path}](/#{path.gsub(":", '#L')})"
       end
 

@@ -23,7 +23,23 @@ module TestsDoc
       end
 
       def response_changed?
-        ::File.read(path).gsub(changes_whitelist, "") != output.gsub(changes_whitelist, "")
+        if TestsDoc.configuration.debug
+          diff = filtered_file_content.split("\n") - filtered_output.split("\n")
+
+          TestsDoc.configuration.logger.puts("DIFF: #{diff}")
+
+          diff.size > 0
+        else
+          filtered_file_content != filtered_output
+        end
+      end
+
+      def filtered_file_content
+        @filtered_file_content ||= ::File.read(path).gsub(changes_whitelist, "")
+      end
+
+      def filtered_output
+        @filtered_output       ||= output.gsub(changes_whitelist, "")
       end
 
       def ensure_folder

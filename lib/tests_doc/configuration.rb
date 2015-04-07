@@ -6,11 +6,17 @@ module TestsDoc
       attr_writer property
 
       define_method property do
-        instance_variable_get("@#{property}") || default
+        value = instance_variable_get("@#{property}")
+
+        value.nil? ? default : instance_variable_get("@#{property}")
       end
     end
 
     config :changes_whitelist_regex, ""
+    config :add_spec_file_number, true
+    config :add_index_timestamps, true
+    config :debug, false
+    config :logger, TestsDoc::Logger
     config :changes_whitelist_regexes, []
     config :controller_params_to_exclude, %w{controller action format}
     config :root_folder, "tests-doc"

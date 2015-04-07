@@ -8,6 +8,7 @@ module TestsDoc
   autoload :RecordSpecHelper,         'tests_doc/record_spec_helper'
   autoload :Configuration,            'tests_doc/configuration'
   autoload :File,                     'tests_doc/file'
+  autoload :Logger,                   'tests_doc/logger'
 
   mattr_accessor :recorded_api_interaction
   mattr_accessor :interaction_options
