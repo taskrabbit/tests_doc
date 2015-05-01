@@ -33,7 +33,7 @@ module TestsDoc
         [
           "# Parameters\n",
           "```json",
-          JSON.pretty_generate(request.params.reject { |k, v| controller_params_to_exclude.include?(k) }.symbolize_keys),
+          JSON.pretty_generate(request.request_parameters.merge(request.query_parameters).symbolize_keys),
           "```"
         ].join("\n")
       end
@@ -75,10 +75,6 @@ module TestsDoc
         path = path.gsub(/^.\//, "")
 
         "[#{path}](/#{path.gsub(":", '#L')})"
-      end
-
-      def controller_params_to_exclude
-        TestsDoc.configuration.controller_params_to_exclude
       end
 
     # /private

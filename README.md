@@ -26,7 +26,6 @@ TestsDoc.configure do |config|
   config.root_folder                  = Rails.root.join("api_interactions")  # default: tests-doc
   config.add_spec_file_number         = false                                # default: true
   config.add_index_timestamps         = false                                # default: true
-  config.controller_params_to_exclude = %w{controller action format api_key} # default: %w{controller action format}
   config.debug                        = true                                 # default: false
 end
 

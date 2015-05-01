@@ -18,7 +18,6 @@ module TestsDoc
     config :debug, false
     config :logger, TestsDoc::Logger
     config :changes_whitelist_regexes, []
-    config :controller_params_to_exclude, %w{controller action format}
     config :root_folder, "tests-doc"
   end
 
