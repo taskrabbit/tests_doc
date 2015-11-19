@@ -1,17 +1,20 @@
 # TestsDoc
 
-This gems allow to output requests specs into readable mdown files.
+This gems allow to output requests specs into readable markdown files.
 
-It links the output to the example file where it was runned.
+It links the output to the example file where it was run.
+
+**This currently only work with RSpec 2**
 
 ## Usage
 
-In your spec_helper.rb RSpec file:
+In your `spec_helper.rb` RSpec file:
 
 ```ruby
 
 require 'tests_doc'
 config.include ::TestsDoc::RecordSpecHelper, type: :request
+
 TestsDoc.configure do |config|
   config.changes_whitelist_regex      = /(.*\"((id)|([\w]+((_id)|(_at))))\":.*\n)|(.*_ids":\s\[\s*\w+\s*\])/ # default: ""
 
@@ -33,21 +36,21 @@ end
 
 You can generate the index file that list all endpoint using the following rake command.
 
-    rake tests_doc:index:build
+`rake tests_doc:index:build`
 
-If you want to only build it if there is a git changes on your file run.
+If you want to only build it if there is a git changes on your file:
 
-    rake tests_doc:index:build_if_changed
+`rake tests_doc:index:build_if_changed`
 
-You could also specify which folder to use for the index file/
+You could also specify which folder to use for the index file:
 
-    rake "tests_doc:index:build_if_changed[api_interactions]"
+`rake "tests_doc:index:build_if_changed[api_interactions]"`
 
-It's also possible to rewrite the index when the rspec suite has been runned.
+It's also possible to rewrite the index after the RSpec suite:
 
 ```ruby
 config.after :suite do |test|
-  # block executed when there is any api interactions were recorded during the rspec
+  # block executed when there is any api interactions were recorded during the RSpec
   TestsDoc.with_api_interaction do
     require 'rake'
     require 'tests_doc/tasks'
