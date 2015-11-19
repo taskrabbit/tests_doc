@@ -7,7 +7,7 @@ module TestsDoc
     class << self
 
       def method_missing(method_name, *args)
-        puts *args
+        puts method_name, args
       end
 
     end

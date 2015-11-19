@@ -4,10 +4,10 @@ module TestsDoc
 
   class Index < Struct.new(:endpoints)
 
-    PATH = "api_interactions/README.md"
+    PATH = "README.md"
 
     def write
-      ::File.write(PATH, content)
+      ::File.write(File.join(TestsDoc.configuration.root_folder, PATH), content)
     end
 
     private

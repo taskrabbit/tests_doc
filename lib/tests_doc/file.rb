@@ -17,7 +17,7 @@ module TestsDoc
     private
 
       def write_output?
-        return true unless ::File.exists?(path)
+        return true unless ::File.file?(path)
 
         response_changed?
       end

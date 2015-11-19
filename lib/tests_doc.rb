@@ -1,5 +1,4 @@
 require "tests_doc/version"
-require 'tests_doc/railtie' if defined?(Rails)
 
 module TestsDoc
   autoload :Interaction,              'tests_doc/interaction'

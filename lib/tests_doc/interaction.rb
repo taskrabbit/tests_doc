@@ -51,7 +51,7 @@ module TestsDoc
       end
 
       def file_path
-        [file_base_path, options.key.to_s].reject(&:blank?).compact.join('-') + '.md'
+        [file_base_path, options.key.to_s].reject(&:blank?).compact.join('@') + '.md'
       end
 
       def file_base_path
@@ -63,7 +63,7 @@ module TestsDoc
       end
 
       def request_path_without_format
-        request.path[/^\/?(.+)[.].+/, 1].to_s
+        request.path[/^\/?([\w,\/]+)([.].+)?$/, 1].to_s
       end
 
       def formatted_example_location
