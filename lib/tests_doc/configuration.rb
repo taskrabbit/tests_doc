@@ -19,6 +19,7 @@ module TestsDoc
     config :logger, TestsDoc::Logger
     config :changes_whitelist_regexes, []
     config :root_folder, "tests-doc"
+    config :doc_folder, "api"
   end
 
 end

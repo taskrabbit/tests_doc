@@ -55,7 +55,7 @@ module TestsDoc
       end
 
       def file_base_path
-        ::File.join(TestsDoc.configuration.root_folder, _path)
+        ::File.join(*[TestsDoc.configuration.root_folder, TestsDoc.configuration.doc_folder, _path].reject(&:blank?))
       end
 
       def _path
