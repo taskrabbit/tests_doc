@@ -7,7 +7,7 @@ module TestsDoc
     PATH = "README.md"
 
     def write
-      ::File.write(File.join(TestsDoc.configuration.root_folder, PATH), content)
+      ::File.write(::File.join(TestsDoc.configuration.root_folder, PATH), content)
     end
 
     private
