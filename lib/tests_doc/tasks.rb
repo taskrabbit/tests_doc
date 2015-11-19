@@ -6,7 +6,7 @@ namespace :tests_doc do
 
       root_folder = args[:root_folder] || TestsDoc.configuration.root_folder
 
-      changed_files = Rake::FileList.new(File.join(root_folder, "api/**/*.md")) do |file_list|
+      changed_files = Rake::FileList.new(File.join(root_folder, "**/*.md")) do |file_list|
         file_list.exclude { |f|
           `git diff #{f}`.empty? && `git ls-files #{f}`.present?
         }
@@ -25,7 +25,7 @@ namespace :tests_doc do
 
       endpoints = {}
 
-      Rake::FileList[File.join(root_folder, "api/**/*.md")].each do |file|
+      Rake::FileList[File.join(root_folder, "**/*.md")].each do |file|
         path = File.open(file, &:readline)
         endpoints[path] ||= []
         endpoints[path] << file.gsub(root_folder.to_s, "")
