@@ -56,8 +56,7 @@ TestsDoc.configure do |config|
     /.*_ids":\s\[\s*\w+\s*\]/
   ]
 
-  config.root_folder                  = Rails.root.join("api_interactions") # default: tests-doc
-  config.add_spec_file_number         = true                                # default: true
-  config.add_index_timestamps         = true                                # default: true
-  config.debug                        = true                                # default: false
+  config.add_spec_file_number = true # default: true
+  config.add_index_timestamps = true # default: true
+  config.debug                = true # default: false
 end
