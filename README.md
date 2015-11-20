@@ -1,18 +1,55 @@
 # TestsDoc
 
-This gems allow to output requests specs into readable markdown files.
+This library allow to output requests specs into readable markdown files.
+It can link the markdown file to the spec ran.
 
-It links the output to the example file where it was run.
+**This library currently only supports RSpec 2**
 
-**This currently only work with RSpec 2**
+## Example Output
+
+# GET users
+
+Rspec description: Users GET /users renders users
+
+[spec/requests/users_spec.rb:5](/examples/rails-4.2.5/spec/requests/users_spec.rb#L5)
+
+# Parameters
+
+```json
+{
+}
+```
+
+# Response
+
+```
+HTTP CODE = 200
+```
+
+```json
+[
+  {
+    "id": 298486374,
+    "email": "MyString",
+    "first_name": "MyString",
+    "last_name": "MyString",
+    "created_at": "2015-11-19T01:11:08.000Z",
+    "updated_at": "2015-11-19T01:11:08.000Z"
+  },
+]
+```
+
+## Example App
+
+You can see a [Rails 4 example app](/examples/rails-4.2.5) with the recorded markdown inside the [tests-doc folder](/examples/rails-4.2.5/tests-doc)
 
 ## Usage
 
 In your `spec_helper.rb` RSpec file:
 
 ```ruby
-
 require 'tests_doc'
+
 config.include ::TestsDoc::RecordSpecHelper, type: :request
 
 TestsDoc.configure do |config|
@@ -33,6 +70,8 @@ TestsDoc.configure do |config|
 end
 
 ```
+
+### Generating the Index file
 
 You can generate the index file that list all endpoint using the following rake command.
 
@@ -62,13 +101,7 @@ end
 
 ## TODO
 
-1. Add tests
-2. Publish gem
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* Add tests
+* Publish gem
+* Fix warnings
+* RSpec 3 support
