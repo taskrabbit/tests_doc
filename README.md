@@ -53,6 +53,8 @@ require 'tests_doc'
 config.include ::TestsDoc::RecordSpecHelper, type: :request
 
 TestsDoc.configure do |config|
+  # The regexes allow you to by pass run time object updated_at and other ids
+  # run time object between each execution
   config.changes_whitelist_regex      = /(.*\"((id)|([\w]+((_id)|(_at))))\":.*\n)|(.*_ids":\s\[\s*\w+\s*\])/ # default: ""
 
   # OR
@@ -63,12 +65,65 @@ TestsDoc.configure do |config|
     /.*_ids":\s\[\s*\w+\s*\]/
   ]
 
-  config.root_folder                  = Rails.root.join("api_interactions")  # default: tests-doc
-  config.add_spec_file_number         = false                                # default: true
-  config.add_index_timestamps         = false                                # default: true
-  config.debug                        = true                                 # default: false
+  # Folder location where the tests doc will be stored
+  config.root_folder = Rails.root.join("api_interactions")  # default: tests-doc
+
+  # Folder name where the tests doc will be stored
+  config.doc_folder  = 'api' # default: api
+
+  # Add RSpec line number to the test doc
+  config.add_spec_file_number = false # default: true
+
+  # tests-doc file will save the timestamps of the last modification
+  config.add_index_timestamps = false # default: true
+
+  # Will output the diff debug of recorded test docs
+  config.debug = true # default: false
 end
 
+```
+
+### Recording interactions in your tests
+
+In your request spec file simply wrap your request with `recording_api_interaction`:
+
+```ruby
+recording_api_interaction do
+  get users_path
+end
+```
+
+You can also set options for the recording:
+
+* The `key` option allows to record a test doc and append to the file name the key:
+
+```ruby
+recording_api_interaction do |options|
+  options.key = 'with-filter'
+  get posts_path(published: true)
+end
+```
+
+Will generate a markdown file named `posts@with-filter.md`.
+
+* The `path` option allows to specify the path you want, a good reason for that is that you want to extract the id of you ActiveRecord object.
+
+```ruby
+recording_api_interaction do |options|
+  options.path = 'users/@id/posts'
+  get user_posts_path(User.first)
+end
+```
+
+Will generate here a markdown file named `posts.md` in the [users/@id](/examples/rails-4.2.5/tests-doc/api/users/@id) folder.
+
+* the `whitelist` option allow you to add on the global regex whitelist:
+
+```ruby
+recording_api_interaction do |options|
+  options.whitelist = /\"token\":.*\n/
+  get users_path(User.first)
+end
 ```
 
 ### Generating the Index file
