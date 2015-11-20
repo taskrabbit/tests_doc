@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = TestsDoc::VERSION
   spec.authors       = ["Jean-Richard Lai"]
   spec.email         = ["jrichardlai@gmail.com"]
-  spec.description   = %q{Output tests inside their own file}
-  spec.summary       = %q{Output tests inside their own file}
-  spec.homepage      = ""
+  spec.description   = %q{This library allow to output requests specs into readable markdown files}
+  spec.summary       = %q{Rspec requests file to markdown}
+  spec.homepage      = "https://github.com/taskrabbit/tests_doc"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "rails", '>= 4.0'
-  spec.add_dependency "rspec", '>= 2.14'
-  spec.add_dependency "rspec-rails", '>= 2.14'
+  spec.add_dependency "rails", '~> 4.0'
+  spec.add_dependency "rspec", '~> 2.14'
+  spec.add_dependency "rspec-rails", '~> 2.14'
 end
