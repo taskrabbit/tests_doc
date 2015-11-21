@@ -5,6 +5,10 @@ It can link the markdown file to the spec ran.
 
 **This library currently only supports RSpec 2**
 
+## Install
+
+`gem install tests_doc`
+
 ## Example Output
 
 # GET users
