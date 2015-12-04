@@ -34,7 +34,7 @@ module TestsDoc
 
         if TestsDoc.interaction_options
           TestsDoc::Interaction.new(
-            example,
+            RSpec.respond_to?(:current_example) ? RSpec.current_example : example,
             request,
             response,
             TestsDoc.interaction_options

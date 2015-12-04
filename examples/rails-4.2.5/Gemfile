@@ -16,7 +16,7 @@ gem 'tests_doc', path: '../../../tests_doc', :group => :test
 
 group :test, :development do
   gem 'byebug'
-  gem 'rspec-rails', '~> 2.14'
+  gem 'rspec-rails', '~> 3.4'
 end
 
 # To use ActiveModel has_secure_password
