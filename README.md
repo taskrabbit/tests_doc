@@ -3,7 +3,7 @@
 This library allow to output requests specs into readable markdown files.
 It can link the markdown file to the spec ran.
 
-**This library currently only supports RSpec 2**
+**This library supports RSpec 2 and RSpec 3**
 
 ## Install
 
@@ -163,4 +163,3 @@ end
 * Add tests
 * Publish gem
 * Fix warnings
-* RSpec 3 support
