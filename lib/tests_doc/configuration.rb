@@ -20,6 +20,7 @@ module TestsDoc
     config :changes_whitelist_regexes, []
     config :root_folder, "tests-doc"
     config :doc_folder, "api"
+    config :key_separator, "@"
   end
 
 end

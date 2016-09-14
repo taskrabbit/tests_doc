@@ -51,7 +51,7 @@ module TestsDoc
       end
 
       def file_path
-        [file_base_path, options.key.to_s].reject(&:blank?).compact.join('@') + '.md'
+        [file_base_path, options.key.to_s].reject(&:blank?).compact.join(TestsDoc.configuration.key_separator) + '.md'
       end
 
       def file_base_path

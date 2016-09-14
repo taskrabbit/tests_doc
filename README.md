@@ -75,6 +75,9 @@ TestsDoc.configure do |config|
   # Folder name where the tests doc will be stored
   config.doc_folder  = 'api' # default: api
 
+  # Key separator between the path and the key
+  config.key_separator = '@' # default: @
+
   # Add RSpec line number to the test doc
   config.add_spec_file_number = false # default: true
 
