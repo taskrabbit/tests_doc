@@ -59,11 +59,12 @@ module TestsDoc
       end
 
       def _path
-        options.path ? options.path.gsub(/^\//, '') : request_path_without_format
+        _path = options.path ? options.path : request_path_without_format
+        _path.gsub(/^\//, '') # remove initial / if present
       end
 
       def request_path_without_format
-        request.path[/^\/?([\w,\/]+)([.].+)?$/, 1].to_s
+        request.path.gsub(/(\.[\w]+)?$/, '') # remove .json if present
       end
 
       def formatted_example_location
