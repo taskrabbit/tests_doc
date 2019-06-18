@@ -19,21 +19,6 @@ HTTP CODE = 200
 
 ```json
 [
-  {
-    "id": 298486374,
-    "title": "MyString",
-    "body": "MyText",
-    "user_id": null,
-    "created_at": "2015-11-19T01:11:08.000Z",
-    "updated_at": "2015-11-19T01:11:08.000Z"
-  },
-  {
-    "id": 980190962,
-    "title": "MyString",
-    "body": "MyText",
-    "user_id": null,
-    "created_at": "2015-11-19T01:11:08.000Z",
-    "updated_at": "2015-11-19T01:11:08.000Z"
-  }
+
 ]
 ```
