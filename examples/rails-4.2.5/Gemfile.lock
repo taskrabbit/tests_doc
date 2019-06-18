@@ -1,8 +1,8 @@
 PATH
-  remote: ../../../tests_doc
+  remote: ../..
   specs:
     tests_doc (0.0.3)
-      rails (~> 4.0)
+      rails (>= 4)
       rspec (>= 2.0)
       rspec-rails (>= 2.0)
 
@@ -140,4 +140,4 @@ DEPENDENCIES
   tests_doc!
 
 BUNDLED WITH
-   1.10.6
+   1.17.3

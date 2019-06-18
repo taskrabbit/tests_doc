@@ -12,9 +12,11 @@ RSpec.describe "Users", :type => :request do
 
   describe "GET /users/:user_id/posts" do
     it "renders posts" do
+      User.create
+
       recording_api_interaction do |options|
         options.path = 'users/@id/posts'
-        get user_posts_path(User.first)
+        get user_posts_path(User.first.id)
         expect(response.status).to be(200)
       end
     end

@@ -19,11 +19,11 @@ HTTP CODE = 200
 
 ```json
 {
-  "id": 298486374,
-  "title": "MyString",
-  "body": "MyText",
-  "user_id": null,
-  "created_at": "2015-11-19T01:11:08.000Z",
-  "updated_at": "2015-11-19T01:11:08.000Z"
+  "id": 1,
+  "title": null,
+  "body": null,
+  "user_id": 1,
+  "created_at": "2019-06-18T21:34:32.172Z",
+  "updated_at": "2019-06-18T21:34:32.172Z"
 }
 ```
