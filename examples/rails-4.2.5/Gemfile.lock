@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    tests_doc (0.0.3)
+    tests_doc (0.0.4)
       rails (>= 4)
       rspec (>= 2.0)
       rspec-rails (>= 2.0)
