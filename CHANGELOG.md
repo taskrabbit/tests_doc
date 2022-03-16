@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2022-03-16
+### Changed
+
+ - Changed upper bound for Rails versions to 7. Added examples for Rails 6.1
+ - Updated Gemfile.lock in examples for Rails 4 and 5
+
 ## [0.0.5] - 2019-06-21
 ### Changed
 
