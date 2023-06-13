@@ -11,19 +11,19 @@ module TestsDoc
       TestsDoc.interaction_options = nil
     end
 
-    def get(*)
+    def get(*, **)
       record_interaction { super }
     end
 
-    def post(*)
+    def post(*, **)
       record_interaction { super }
     end
 
-    def put(*)
+    def put(*, **)
       record_interaction { super }
     end
 
-    def delete(*)
+    def delete(*, **)
       record_interaction { super }
     end
 
